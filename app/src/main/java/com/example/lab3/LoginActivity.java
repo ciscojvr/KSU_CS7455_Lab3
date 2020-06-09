@@ -2,6 +2,7 @@ package com.example.lab3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,9 @@ public class LoginActivity extends AppCompatActivity {
     EditText username;
     EditText password;
     Button loginButton;
+
+    private static final String validUsername = "cs7455";
+    private static final String validPassword = "123456";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +32,24 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (username.getText().toString().equals("cs7455") && password.getText().toString().equals("123456")) {
+                String usernameEntered = username.getText().toString();
+                String passwordEntered = password.getText().toString();
+
+                if (usernameEntered.equals(validUsername) && passwordEntered.equals(validPassword)) {
                     Log.d(TAG, "Login successful!");
                 }  else {
                     Log.d(TAG, "Incorrect login!");
                 }
+
+                Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
+                Bundle bundle = new Bundle();
+
+                bundle.putString("enteredUsername", usernameEntered);
+                bundle.putString("enteredPassword", passwordEntered);
+
+                intent.putExtras(bundle);
+
+                startActivity(intent);
             }
         });
     }
