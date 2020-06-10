@@ -30,9 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.editText_username);
         password = (EditText) findViewById(R.id.editText_password);
         loginButton = (Button) findViewById(R.id.button_login);
-
-
-
+        
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
