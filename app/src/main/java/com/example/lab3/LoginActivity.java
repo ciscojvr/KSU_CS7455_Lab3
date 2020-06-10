@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
-    private static final String TAG = "Main Activity"; // Using TAG constant for logging
     EditText username;
     EditText password;
     Button loginButton;
@@ -30,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.editText_username);
         password = (EditText) findViewById(R.id.editText_password);
         loginButton = (Button) findViewById(R.id.button_login);
-        
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
