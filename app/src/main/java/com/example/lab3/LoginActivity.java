@@ -1,10 +1,17 @@
+/*
+
+Name: Francisco Ozuna Diaz
+Assignment: CS 7455 Lab 3
+Lab Date: Due June 14, 2020 at 11:59 PM
+
+ */
+
 package com.example.lab3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,9 +21,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText username;
     EditText password;
     Button loginButton;
-
-    private static final String validUsername = "cs7455";
-    private static final String validPassword = "123456";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +38,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String usernameEntered = username.getText().toString();
                 String passwordEntered = password.getText().toString();
-
-                if (usernameEntered.equals(validUsername) && passwordEntered.equals(validPassword)) {
-                    Log.d(TAG, "Login successful!");
-                }  else {
-                    Log.d(TAG, "Incorrect login!");
-                }
 
                 Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
                 Bundle bundle = new Bundle();

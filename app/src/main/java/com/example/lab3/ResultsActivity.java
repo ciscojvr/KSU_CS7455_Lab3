@@ -1,3 +1,11 @@
+/*
+
+Name: Francisco Ozuna Diaz
+Assignment: CS 7455 Lab 3
+Lab Date: Due June 14, 2020 at 11:59 PM
+
+ */
+
 package com.example.lab3;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,18 +17,18 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ResultsActivity extends AppCompatActivity {
-    TextView result;
+    TextView resultTextView;
     Button goBackButton;
 
-    private static final String validUsername = "cs7455";
-    private static final String validPassword = "123456";
+    private final String validUsername = "cs7455";
+    private final String validPassword = "123456";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
-        result = (TextView) findViewById(R.id.textView_results);
+        resultTextView = (TextView) findViewById(R.id.textView_results);
         goBackButton = (Button) findViewById(R.id.button_go_back);
 
         Bundle bundle = getIntent().getExtras();
@@ -29,10 +37,10 @@ public class ResultsActivity extends AppCompatActivity {
         String passwordEntered = bundle.getString("enteredPassword");
 
         if(usernameEntered.equals(validUsername) && passwordEntered.equals(validPassword)) {
-            result.setText(usernameEntered + ", Welcome to my webpage!");
+            resultTextView.setText(usernameEntered + ", Welcome to my webpage!");
             goBackButton.setVisibility(View.INVISIBLE);
         } else {
-            result.setText("Login Fail! Please go back, try it again!");
+            resultTextView.setText("Login Fail! Please go back, try it again!");
             goBackButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
